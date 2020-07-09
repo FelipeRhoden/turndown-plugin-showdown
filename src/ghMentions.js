@@ -1,12 +1,15 @@
 function ghMentions(turndownService){
 
-    turndownService.options.ghMentionsLink = 'https://github.com/';
+    turndownService.options.ghMentionsLink = 'https://github.com/{u}';
 
     turndownService.addRule('ghMentions',{
         filter:(node, options) => {
             if (node.nodeName === 'A' && node.getAttribute('href')){
-                let href = node.getAttribute('href');
-                return href.startsWith(options.ghMentionsLink);
+                const href = node.getAttribute('href'),
+                      content = node.textContent;
+                      
+                return content[0] === '@' 
+                    && options.ghMentionsLink.replace(/\{u\}/g, content.substring(1)) === href;
             }
 
             return false;
