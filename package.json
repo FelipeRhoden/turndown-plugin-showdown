@@ -12,12 +12,23 @@
     "Markdown"
   ],
   "author": "Felipe Rhoden",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "jest": "^26.1.0",
     "neat-csv": "^5.2.0",
     "showdown": "^1.9.1",
     "turndown": "^6.0.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelipeRhoden/turndown-plugin-showdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FelipeRhoden/turndown-plugin-showdown/issues"
+  },
+  "homepage": "https://github.com/FelipeRhoden/turndown-plugin-showdown#readme"
 }
