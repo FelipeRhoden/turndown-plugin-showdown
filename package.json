@@ -1,6 +1,6 @@
 {
   "name": "turndown-plugin-showdown",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Turndown plugin based on the Showdow library",
   "main": "./src/showdownPg.js",
   "scripts": {
