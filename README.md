@@ -1,4 +1,4 @@
-# Plugin Trundown para Showdown
+# Plugin Turndown para Showdown
 
 Este plugin tem a finalidade de fazer com que a conversão de html, realizada pela biblioteca [Turndown][1], aceite algumas opção presente na biblioteca [Showdown][2].
 
