@@ -34,6 +34,6 @@
   },
   "homepage": "https://github.com/FelipeRhoden/turndown-plugin-showdown#readme",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@OWNER"
+    "registry": "https://npm.pkg.github.com/feliperhoden"
   }
 }
