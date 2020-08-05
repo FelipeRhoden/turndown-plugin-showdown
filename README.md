@@ -5,7 +5,7 @@ Este plugin tem a finalidade de fazer com que a conversão de html, realizada pe
 [1]: https://github.com/domchristie/turndown "Turndown"
 [2]: https://github.com/showdownjs/showdown "Showdown"
 
-As opções presentes são:
+As opções presentes são estas:
 
 - parseImgDimension
 - strikethrough
