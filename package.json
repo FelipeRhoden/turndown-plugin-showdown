@@ -32,5 +32,8 @@
   "bugs": {
     "url": "https://github.com/FelipeRhoden/turndown-plugin-showdown/issues"
   },
-  "homepage": "https://github.com/FelipeRhoden/turndown-plugin-showdown#readme"
+  "homepage": "https://github.com/FelipeRhoden/turndown-plugin-showdown#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
