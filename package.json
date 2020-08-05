@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FelipeRhoden/turndown-plugin-showdown.git"
+    "url": "git://github.com/FelipeRhoden/turndown-plugin-showdown.git"
   },
   "bugs": {
     "url": "https://github.com/FelipeRhoden/turndown-plugin-showdown/issues"
