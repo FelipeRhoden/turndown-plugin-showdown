@@ -222,4 +222,4 @@ Este plugin é liberado sob a linceça MIT
 
 ________________________________
 
-Copyright (c) 2020 Felipe Rhoden
+Copyright &copy; 2020 Felipe Rhoden
