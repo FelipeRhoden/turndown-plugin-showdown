@@ -5,7 +5,7 @@ Este plugin tem a finalidade de fazer com que a conversão de html, realizada pe
 [1]: https://github.com/domchristie/turndown "Turndown"
 [2]: https://github.com/showdownjs/showdown "Showdown"
 
-As opções presentes são estas:
+As opções presentes são:
 
 - parseImgDimension
 - strikethrough
@@ -118,7 +118,108 @@ console.log(turndownService.turndown(html));
 // | Teste 1 | Teste 2 | Teste 3 |
 ```
 
-_________________________
-# Em construção
+### taskLists
 
-O resto do README.md está em construção, até dia 12/08/2020 estará completo. Obrigado por estar lendo.
+Esta funcionalidade realiza a conversão de tags "inputs" com "type" igual "checkbox" dentro listas na sintaxe de taskslists definida pela biblioteca Showdown.
+
+```javascript
+/* index.js */
+
+const   TurndownService = require('turndown'),
+        { taskLists } = require('turndown-plugin-showdown'),
+        turndownService = new TurndownService().use(taskLists);
+
+        let html = `
+        <ul>
+                <li><input type="checkbox" checked> Checado</li>
+                <li><input type="checkbox"> Não Checado</li>
+        </ul>
+        `;
+
+console.log(turndownService.turndown(html));
+//Output 
+//*   [x] Checado
+//*   [ ] Não Checado
+```
+
+### ghMentions
+
+Esta opção faz a converção de tags "A" com "href" definido na opção "ghMentionsLink" em sintaxe padrão ghMentions específicada na biblioteca Showdown. Por padrão o "ghMentionsLink" é "https://github.com/{u}" quando utilizada a funcionalidade "ghMentions", mas pode ser alterado.
+
+```javascript
+/* index.js */
+
+const   TurndownService = require('turndown'),
+        { ghMentions } = require('turndown-plugin-showdown'),
+        turndownService = new TurndownService().use(ghMentions);
+
+        turndownService.options.ghMentionsLink = 'https://github.com/{u}';
+
+        let html = '<a href="https://github.com/FelipeRhoden">@FelipeRhoden</a>';
+
+console.log(turndownService.turndown(html));
+// Output @FelipeRhoden
+```
+
+### automaticLinks
+
+Esta opção faz a converção de tags "A" com o "href" igual do seu conteudo, converte também quando o "href" inicia com a palavara "mailto:" e o restante é igual ao conteudo da tag. Isso garante que a reconverção do códiog gerado de markdown para html mantenha o encode de e-mails, caso contrario os links de e-mail seriam convertidos para sintaxe de link normal que não realiza o enconde na reconverção.
+
+```javascript
+/* index.js */
+
+const   TurndownService = require('turndown'),
+        { automaticLinks } = require('turndown-plugin-showdown'),
+        turndownService = new TurndownService().use(automaticLinks);
+
+        let html = '<a href="https://github.com/FelipeRhoden">https://github.com/FelipeRhoden</a>';
+
+console.log(turndownService.turndown(html));
+// Output <https://github.com/FelipeRhoden>
+```
+
+### emoji
+
+Esta opção faz a converção de unicode de emojis em sintaxe de emoji especificada na biblioteca Showdown. A lista suportada de emojis pode ser encontrada no seguinte link: <https://github.com/showdownjs/showdown/wiki/Emojis>
+
+```javascript
+/* index.js */
+
+const   TurndownService = require('turndown'),
+        { emoji } = require('turndown-plugin-showdown'),
+        turndownService = new TurndownService().use(emoji);
+
+        let html = '💃🤳';
+
+console.log(turndownService.turndown(html));
+//Output :dancer::selfie:
+```
+
+### underline
+
+Esta opção faz a converção da tag "U" em sintaxe underline definida pela biblioteca Showdown. Quando utiliza a upção underline as opçãos da biblioteca Turndown "emDelimiter" e "strongDelimiter" ficarão respectivamente travadas na utilização de "\*"  "\*\*" por conta da incoerencia que poderia ser gerada na reconverção do conteudo utilizando a biblioteca Showdown.
+
+```javascript
+/* index.js */
+
+const   TurndownService = require('turndown'),
+        { underline } = require('turndown-plugin-showdown'),
+        turndownService = new TurndownService().use(underline);
+
+        let html = '<u>underline</u>';
+
+console.log(turndownService.turndown(html));
+//Output __underline__
+```
+
+### showdownPg
+
+Esta opção faz a utilização de todas as outras opções juntas.
+
+## Lincença
+
+Este plugin é liberado sob a linceça MIT
+
+________________________________
+
+Copyright (c) 2020 Felipe Rhoden
